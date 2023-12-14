@@ -5,7 +5,7 @@ import { signOut, useSession } from "next-auth/react";
 
 const Header = () => {
   const session = useSession();
-  const status = session.status;
+  const status = session?.status;
   const userData = session.data?.user;
   let userName = userData?.name || userData?.email;
   if (userName && userName.includes(" ")) {

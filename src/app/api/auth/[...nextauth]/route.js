@@ -36,10 +36,10 @@ const handler = NextAuth({
         const user = await User.findOne({ email });
         const passwordOk = user && bcrypt.compareSync(password, user.password);
         console.log({ passwordOk });
+        console.log("This is the user", { user });
         if (passwordOk) {
           return user;
         }
-
         return null;
       },
     }),
