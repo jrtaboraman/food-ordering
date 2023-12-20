@@ -12,12 +12,4 @@ const UserSchema = new Schema(
 
 // How to encrypt password using BCRYPT
 
-UserSchema.post("validate", function (user) {
-  const notHashedPassword = user.password;
-  const salt = bcrypt.genSaltSync(10);
-  user.password = bcrypt.hashSync(notHashedPassword, salt);
-
-  console.log({ arguments });
-});
-
 export const User = models?.User || model("User", UserSchema);
